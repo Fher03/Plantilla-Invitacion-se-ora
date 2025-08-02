@@ -9,22 +9,22 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col gap-16 justify-center h-screen w-full bg-amber-200">
+    <main className="flex flex-col gap-16 justify-center h-screen w-screen bg-amber-200">
       <AnimatedImage
         src="/flor_roja.webp"
-        width={250}
-        height={250}
+        width={300}
+        height={300}
         style="pt-10"
         alt="Image flor roja"
-        initialX={-70}
-        finalX={-50}
+        initialX={-100}
+        finalX={-70}
       />
       <Title name="Cumpleaños de Alejandra Ruiz" />
       <AnimatedImage
         src="/flor_gris.png"
         width={300}
         height={300}
-        style="flex justify-end items-end h-screen"
+        style="flex justify-end items-end h-screen z-10"
         alt="Imagen flor gris"
         initialX={70}
         finalX={40}
