@@ -21,11 +21,9 @@ export default function Quote({ text }: QuoteProps) {
     visible: { opacity: 1, x: 0 },
   };
   return (
-    <div
-      ref={ref}
-      className="h-screen flex justify-center items-center w-4/5 z-10"
-    >
+    <div className="h-screen flex justify-center items-center w-4/5 z-10">
       <motion.h2
+        ref={ref}
         className={`${parisienne.className} font-semibold text-white text-5xl text-center`}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}

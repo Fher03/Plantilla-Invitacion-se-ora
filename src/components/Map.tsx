@@ -6,13 +6,14 @@ import { useRef } from "react";
 interface MapProps {
   children: React.ReactNode;
   title: string;
+  subtitle: string;
 }
 const parisienne = Parisienne({
   weight: "400",
   subsets: ["latin"],
 });
 
-export default function Map({ children, title }: MapProps) {
+export default function Map({ children, title, subtitle }: MapProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const variants: Variants = {
@@ -31,8 +32,13 @@ export default function Map({ children, title }: MapProps) {
     }),
   };
   return (
-    <div ref={ref} className="flex h-full flex-col justify-around items-center">
-      <h2 className={`${parisienne.className} text-5xl text-white`}>
+    <div
+      ref={ref}
+      className="flex h-full gap-0 flex-col justify-around items-center"
+    >
+      <h2
+        className={`${parisienne.className} whitespace-pre-line text-5xl text-white`}
+      >
         {title.split("").map((letter, index) => {
           return (
             <motion.span
@@ -47,7 +53,32 @@ export default function Map({ children, title }: MapProps) {
           );
         })}
       </h2>
+      <h2
+        className={`${parisienne.className} whitespace-pre-line text-5xl text-white`}
+      >
+        {subtitle.split("").map((letter, index) => {
+          return (
+            <motion.span
+              key={index}
+              initial="hidden"
+              custom={index}
+              animate={isInView ? "visible" : "hidden"}
+              variants={variants}
+            >
+              {letter}
+            </motion.span>
+          );
+        })}
+      </h2>
+
       {children}
+
+      <a
+        href="https://maps.app.goo.gl/m4T3Qrocj7D9audNA"
+        className="cursor-pointer px-4 py-2 rounded-sm bg-amber-300 text-black text-xl"
+      >
+        Abrir en Google Maps
+      </a>
     </div>
   );
 }

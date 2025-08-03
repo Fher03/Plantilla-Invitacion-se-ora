@@ -11,7 +11,8 @@ import { motion } from "framer-motion";
 interface CardProps {
   date: string;
   hour: string;
-  place: string;
+  place?: string;
+  message: string;
 }
 
 const libertinusMono = Roboto_Slab({
@@ -19,7 +20,7 @@ const libertinusMono = Roboto_Slab({
   subsets: ["latin"],
 });
 
-export default function Card({ date, hour, place }: CardProps) {
+export default function Card({ date, hour, place, message }: CardProps) {
   const flowersTopRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const flowersBottomRef = useRef<HTMLDivElement>(null);
@@ -72,10 +73,11 @@ export default function Card({ date, hour, place }: CardProps) {
             height={200}
           />
         </motion.div>
-        <div>
+        <div className="flex flex-col gap-3">
           <p>Fecha: {date}</p>
           <p>Hora: {hour}</p>
-          <p>Lugar: {place}</p>
+          {place ? <p>Lugar: {place}</p> : ""}
+          <p>{message}</p>
         </div>
         {/* Flores inferiores */}
         <motion.div
