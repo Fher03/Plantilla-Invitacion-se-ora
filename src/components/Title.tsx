@@ -9,7 +9,7 @@ interface TitleProps {
   style?: CSSProperties;
 }
 
-const allura = Allura({ weight: "400", style: "normal" });
+const allura = Allura({ weight: "400", style: "normal", subsets: ["latin"] });
 
 export default function Title({ name, style }: TitleProps) {
   return (
