@@ -50,51 +50,48 @@ export default function Card({ date, hour, place }: CardProps) {
 
   return (
     <div className="flex flex-col items-center justify-center h-full">
-      {/* Flores superiores */}
-      <motion.div
-        ref={flowersTopRef}
-        initial="hidden"
-        animate={flowersTopInView ? "visible" : "hidden"}
-        variants={variants}
-        className="relative top-30 right-28 z-10"
-      >
-        <Image
-          src={LeftTopFlowers}
-          alt="Tira de Flores"
-          width={200}
-          height={200}
-        />
-      </motion.div>
-
       {/* Tarjeta principal */}
       <motion.div
         ref={cardRef}
         initial="hidden"
         animate={cardInView ? "visible" : "hidden"}
         variants={variants}
-        className={`${libertinusMono.className} py-20 text-center text-xl gap-10 border-pink-300 border-4 rounded-sm flex flex-col justify-center bg-amber-100 items-center w-4/5 h-3/5 backdrop-blur-md shadow-lg p-6`}
+        className={`${libertinusMono.className} relative py-20 text-center text-xl gap-10 border-pink-300 border-4 rounded-sm flex flex-col justify-center bg-amber-100 items-center w-4/5 h-3/5 backdrop-blur-md shadow-lg p-6`}
       >
+        <motion.div
+          ref={flowersTopRef}
+          initial="hidden"
+          animate={flowersTopInView ? "visible" : "hidden"}
+          variants={variants}
+          className="absolute -top-1/4 -left-20 z-10"
+        >
+          <Image
+            src={LeftTopFlowers}
+            alt="Tira de Flores"
+            width={200}
+            height={200}
+          />
+        </motion.div>
         <div>
           <p>Fecha: {date}</p>
           <p>Hora: {hour}</p>
           <p>Lugar: {place}</p>
         </div>
-      </motion.div>
-
-      {/* Flores inferiores */}
-      <motion.div
-        ref={flowersBottomRef}
-        initial="hidden"
-        animate={flowersBottomInView ? "visible" : "hidden"}
-        variants={variants}
-        className="relative bottom-10 left-28 h-fit"
-      >
-        <Image
-          src={RightBottomFlowers}
-          alt="Tira de flores"
-          width={200}
-          height={200}
-        />
+        {/* Flores inferiores */}
+        <motion.div
+          ref={flowersBottomRef}
+          initial="hidden"
+          animate={flowersBottomInView ? "visible" : "hidden"}
+          variants={variants}
+          className="absolute -bottom-1/5 -right-20 z-10"
+        >
+          <Image
+            src={RightBottomFlowers}
+            alt="Tira de flores"
+            width={200}
+            height={200}
+          />
+        </motion.div>
       </motion.div>
     </div>
   );
