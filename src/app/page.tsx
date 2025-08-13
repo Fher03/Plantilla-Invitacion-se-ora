@@ -7,6 +7,7 @@ import BackgroundImage from "#/background_quote.jpg";
 import Card from "@/components/Card";
 import GardenImage from "#/garden.jpg";
 import Map from "@/components/Map";
+import BackgroundMusic from "@/components/BackgroundMusic";
 
 export const metadata: Metadata = {
   title: "Alejandra Ruiz Cumpleaños",
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div>
+      <BackgroundMusic />
       <main className="flex flex-col gap-16 justify-center h-screen w-screen bg-amber-200">
         <AnimatedImage
           src="/flor_roja.webp"
