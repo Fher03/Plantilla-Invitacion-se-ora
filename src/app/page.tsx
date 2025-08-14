@@ -40,7 +40,7 @@ export default function HomePage() {
         />
       </main>
       <section className="h-screen">
-        <Card date="19-08-25" hour="3:00PM" message="Invitación Personal" />
+        <Card date="19-08-25" hour="3:30PM" message="Invitación Personal" />
         <Image
           src={GardenImage}
           alt="Jardin de flores"
